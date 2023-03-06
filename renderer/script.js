@@ -17,10 +17,12 @@ function isImage(file) {
   return file && formats.includes(file["type"]);
 }
 
+const image = document.getElementById("editorImage");
+
 const openEditor = (img) => {
   document.getElementById("welcome").style.display = "none";
   document.getElementById("editor").style.display = "flex";
-  document.getElementById("editorImage").src = img;
+  image.src = img;
 };
 
 const closeEditor = () => {
@@ -46,3 +48,24 @@ const handleImageSelection = (e) => {
 document.getElementById("discardBtn").addEventListener("click", closeEditor);
 
 filePicker.addEventListener("change", handleImageSelection);
+
+let rotationAngle = 0;
+const rotateImage = () => {
+  rotationAngle += 90;
+  if (rotationAngle >= 360) {
+    rotationAngle = 0;
+  }
+  image.style.transform = "rotate(" + rotationAngle + "deg)";
+};
+
+let skewH = 1;
+const skewHImage = () => {
+  skewH = skewH * -1;
+  image.style.transform = "scaleX(" + skewH + ")";
+};
+
+let skewV = 1;
+const skewVImage = () => {
+  skewV = skewV * -1;
+  image.style.transform = "scaleY(" + skewV + ")";
+};

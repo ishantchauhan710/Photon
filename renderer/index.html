@@ -62,7 +62,7 @@
             <img
               id="editorImage"
               src="https://cdn.pixabay.com/photo/2023/02/06/01/14/superb-fairywren-7770904_960_720.jpg"
-              class="w-full rounded-sm aspect-square object-fit"
+              class="w-full h-full rounded-sm aspect-square object-fit"
             />
 
             <div class="flex gap-2">
@@ -89,28 +89,29 @@
           <div class="h-screen overflow-auto my-3 text-left">
             <div class="grid grid-cols-2 gap-2 w-full px-2">
               <div
-                id="actionBlur"
+                onclick="rotateImage()"
                 class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
               >
                 Rotate
               </div>
-              <div
-                id="actionBlur"
-                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
-              >
-                Resize
-              </div>
-              <div
-                id="actionBlur"
-                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
-              >
-                Flip
-              </div>
+
               <div
                 id="actionBlur"
                 class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
               >
                 Color
+              </div>
+              <div
+                onclick="skewHImage()"
+                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
+              >
+                Skew (H)
+              </div>
+              <div
+                onclick="skewVImage()"
+                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
+              >
+                Skew (V)
               </div>
             </div>
 
