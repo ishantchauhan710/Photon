@@ -1,0 +1,16 @@
+{
+  "name": "photon",
+  "productName": "photon",
+  "version": "1.0.0",
+  "description": "an image editing application",
+  "main": "main.js",
+  "scripts": {
+    "start": "npx electronmon .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ishant",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^23.1.2"
+  }
+}
