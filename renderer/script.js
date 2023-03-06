@@ -17,16 +17,16 @@ function isImage(file) {
   return file && formats.includes(file["type"]);
 }
 
-const openEditor = () => {
+const openEditor = (img) => {
   document.getElementById("welcome").style.display = "none";
   document.getElementById("editor").style.display = "flex";
+  document.getElementById("editorImage").src = img;
 };
 
 const closeEditor = () => {
   document.getElementById("welcome").style.display = "flex";
   document.getElementById("editor").style.display = "none";
 };
-
 
 const handleImageSelection = (e) => {
   const file = e.target.files[0];
@@ -36,10 +36,12 @@ const handleImageSelection = (e) => {
     return;
   }
 
-  openEditor();
+  const img = URL.createObjectURL(file);
+
+  openEditor(img);
 };
 
-openEditor();
+//openEditor(img);
 
 document.getElementById("discardBtn").addEventListener("click", closeEditor);
 
