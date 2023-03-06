@@ -97,3 +97,20 @@ const removeBlur = () => {
   }
   image.style.filter = "blur(" + blur + "px)";
 };
+
+let brightness = 100;
+const addBrightness = () => {
+  brightness += 5;
+  if (brightness >= 200) {
+    blur = 200;
+  }
+  image.style.filter = "brightness(" + brightness + "%)";
+};
+
+const removeBrightness = () => {
+  brightness -= 5;
+  if (brightness <= 0) {
+    blur = 0;
+  }
+  image.style.filter = "brightness(" + brightness + "%)";
+};
