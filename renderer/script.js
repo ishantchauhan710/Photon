@@ -1,5 +1,16 @@
 const { ipcRenderer } = require("electron");
 
+// Disable text selection on double click
+document.addEventListener(
+  "mousedown",
+  function (event) {
+    if (event.detail > 1) {
+      event.preventDefault();
+    }
+  },
+  false
+);
+
 const filePicker = document.getElementById("filePicker");
 
 // Exit
@@ -68,4 +79,21 @@ let skewV = 1;
 const skewVImage = () => {
   skewV = skewV * -1;
   image.style.transform = "scaleY(" + skewV + ")";
+};
+
+let blur = 0;
+const addBlur = () => {
+  blur += 1;
+  if (blur >= 100) {
+    blur = 100;
+  }
+  image.style.filter = "blur(" + blur + "px)";
+};
+
+const removeBlur = () => {
+  blur -= 1;
+  if (blur <= 0) {
+    blur = 0;
+  }
+  image.style.filter = "blur(" + blur + "px)";
 };
