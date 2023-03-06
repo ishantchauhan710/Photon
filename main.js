@@ -6,8 +6,9 @@ const isMac = process.platform === "darwin";
 const createMainWindow = () => {
   const mainWindow = new BrowserWindow({
     title: "Photon",
-    width: 500,
+    width: 800,
     height: 600,
+    frame: false
   });
 
   mainWindow.loadFile("./renderer/index.html");

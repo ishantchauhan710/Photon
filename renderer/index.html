@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    Hid
-</body>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="h-screen flex">
+      <div
+        class="basis-1/2 bg-orange-600 text-white text-center flex items-center justify-center"
+      >
+        <div class="flex flex-col items-center">
+          <img src="./photon.png" class="w-3/12" />
+          <div class="mt-2 font-bold text-2xl">Photon</div>
+          <div class="text-[12px]">(Version 1.0)</div>
+        </div>
+      </div>
+      <div class="basis-1/2 bg-white flex flex-col items-center justify-center">
+        <a
+          class="inline-block w-6/12 text-center rounded border border-orange-600 px-12 py-3 text-sm font-medium text-orange-600 hover:bg-orange-600 hover:text-white focus:outline-none active:bg-orange-500"
+          href="#"
+        >
+          Select Image
+        </a>
+        <a
+          class="inline-block w-6/12 text-center mt-4 rounded border border-orange-600 px-12 py-3 text-sm font-medium text-orange-600 hover:bg-orange-600 hover:text-white focus:outline-none active:bg-orange-500"
+          href="#"
+        >
+          View Docs
+        </a>
+
+        <a
+          class="inline-block w-6/12 text-center mt-4 rounded border border-orange-600 px-12 py-3 text-sm font-medium text-orange-600 hover:bg-orange-600 hover:text-white focus:outline-none active:bg-orange-500"
+          href="#"
+        >
+          Quit
+        </a>
+      </div>
+    </div>
+  </body>
 </html>
