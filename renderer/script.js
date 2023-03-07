@@ -65,6 +65,8 @@ let skewH = 1;
 let skewV = 1;
 let blur = 0;
 let brightness = 100;
+let contrast = 100;
+let saturation = 1;
 
 const applyChangesToImage = () => {
   image.style.transform =
@@ -78,7 +80,18 @@ const applyChangesToImage = () => {
     skewV +
     ")";
   image.style.filter =
-    "blur(" + blur + "px)" + "brightness(" + brightness + "%)";
+    "blur(" +
+    blur +
+    "px)" +
+    "brightness(" +
+    brightness +
+    "%)" +
+    "contrast(" +
+    contrast +
+    "%)" +
+    "saturate(" +
+    saturation +
+    ")";
 };
 
 const rotateImage = () => {
@@ -127,6 +140,38 @@ const removeBrightness = () => {
   brightness -= 5;
   if (brightness <= 0) {
     brightness = 0;
+  }
+  applyChangesToImage();
+};
+
+const addContrast = () => {
+  contrast += 5;
+  if (contrast >= 200) {
+    contrast = 200;
+  }
+  applyChangesToImage();
+};
+
+const removeContrast = () => {
+  contrast -= 5;
+  if (contrast <= 0) {
+    contrast = 0;
+  }
+  applyChangesToImage();
+};
+
+const addSaturation = () => {
+  saturation += 5;
+  if (saturation >= 100) {
+    saturation = 100;
+  }
+  applyChangesToImage();
+};
+
+const removeSaturation = () => {
+  saturation -= 5;
+  if (saturation <= 0) {
+    saturation = 0;
   }
   applyChangesToImage();
 };
