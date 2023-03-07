@@ -1,4 +1,4 @@
-const { ipcRenderer } = require("electron");
+const { ipcRenderer, desktopCapturer } = require("electron");
 
 // Disable text selection on double click
 document.addEventListener(
@@ -42,7 +42,7 @@ const closeEditor = () => {
 };
 
 // Show welcome screen on load
-openEditor();
+closeEditor();
 
 const handleImageSelection = (e) => {
   const file = e.target.files[0];
@@ -56,6 +56,11 @@ const handleImageSelection = (e) => {
 
   openEditor(img);
 };
+
+// Take screenshot
+document.getElementById("screenshotBtn").addEventListener("click", () => {
+  ipcRenderer.send("screenshot-app");
+});
 
 document.getElementById("discardBtn").addEventListener("click", closeEditor);
 

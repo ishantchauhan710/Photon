@@ -1,4 +1,5 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, BrowserWindow, ipcMain, desktopCapturer } = require("electron");
+
 
 const isMac = process.platform === "darwin";
 
@@ -41,3 +42,6 @@ ipcMain.on("close-app", (evt, arg) => {
   app.quit();
 });
 
+ipcMain.on("screenshot-app", (evt, arg) => {
+  
+});
