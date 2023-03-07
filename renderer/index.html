@@ -59,11 +59,14 @@
           class="basis-2/3 bg-gray-100 border-r border-neutral-100 text-center flex items-center justify-center"
         >
           <div class="px-4">
-            <img
-              id="editorImage"
-              src="https://cdn.pixabay.com/photo/2023/02/06/01/14/superb-fairywren-7770904_960_720.jpg"
-              class="w-full h-full rounded-sm aspect-square object-fit"
-            />
+            <div class="relative">
+              <div class="w-full h-full absolute bg-black" id="tint"></div>
+              <img
+                id="editorImage"
+                src="https://cdn.pixabay.com/photo/2023/02/06/01/14/superb-fairywren-7770904_960_720.jpg"
+                class="w-full h-full rounded-sm aspect-square object-fit"
+              />
+            </div>
 
             <div class="flex gap-2">
               <a
@@ -96,12 +99,6 @@
               </div>
 
               <div
-                id="actionBlur"
-                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
-              >
-                Color
-              </div>
-              <div
                 onclick="skewHImage()"
                 class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
               >
@@ -112,6 +109,28 @@
                 class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
               >
                 Skew (V)
+              </div>
+
+              <div
+                id="colorPickerBtn"
+                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
+              >
+                Color
+                <input id="colorPicker" type="color" value="#ff0000" hidden />
+              </div>
+
+              <div
+                onclick="addOpacity()"
+                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
+              >
+                Opacity (+)
+              </div>
+
+              <div
+                onclick="removeOpacity()"
+                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
+              >
+                Opacity (-)
               </div>
             </div>
 

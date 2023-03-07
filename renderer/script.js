@@ -41,6 +41,9 @@ const closeEditor = () => {
   document.getElementById("editor").style.display = "none";
 };
 
+// Show welcome screen on load
+closeEditor();
+
 const handleImageSelection = (e) => {
   const file = e.target.files[0];
 
@@ -67,6 +70,8 @@ let blur = 0;
 let brightness = 100;
 let contrast = 100;
 let saturation = 1;
+let tintColor = "#000000";
+let opacity = 0;
 
 const applyChangesToImage = () => {
   image.style.transform =
@@ -175,3 +180,47 @@ const removeSaturation = () => {
   }
   applyChangesToImage();
 };
+
+const tint = document.getElementById("tint");
+
+const applyChangesToTint = () => {
+  tint.style.opacity = opacity;
+  tint.style.backgroundColor = tintColor;
+};
+
+// Run once when page loads
+applyChangesToTint();
+
+const addOpacity = () => {
+  opacity += 0.1;
+  if (opacity >= 1) {
+    opacity = 1;
+  }
+  applyChangesToTint();
+};
+
+const removeOpacity = () => {
+  opacity -= 0.1;
+  if (opacity <= 0) {
+    opacity = 0;
+  }
+  applyChangesToTint();
+};
+
+// Tint
+let firstClick = true;
+const colorPicker = document.getElementById("colorPicker");
+document.getElementById("colorPickerBtn").addEventListener("click", () => {
+  // Set some opacity when color button is clicked for first time
+  if (firstClick) {
+    firstClick = false;
+    opacity = 0.5;
+    applyChangesToTint();
+  }
+  colorPicker.click();
+});
+
+document.getElementById("colorPicker").addEventListener("input", () => {
+  tintColor = colorPicker.value;
+  applyChangesToTint();
+});
