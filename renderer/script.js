@@ -61,33 +61,50 @@ document.getElementById("discardBtn").addEventListener("click", closeEditor);
 filePicker.addEventListener("change", handleImageSelection);
 
 let rotationAngle = 0;
+let skewH = 1;
+let skewV = 1;
+let blur = 0;
+let brightness = 100;
+
+const applyChangesToImage = () => {
+  image.style.transform =
+    "scaleX(" +
+    skewH +
+    ")" +
+    "rotate(" +
+    rotationAngle +
+    "deg)" +
+    "scaleY(" +
+    skewV +
+    ")";
+  image.style.filter =
+    "blur(" + blur + "px)" + "brightness(" + brightness + "%)";
+};
+
 const rotateImage = () => {
   rotationAngle += 90;
   if (rotationAngle >= 360) {
     rotationAngle = 0;
   }
-  image.style.transform = "rotate(" + rotationAngle + "deg)";
+  applyChangesToImage();
 };
 
-let skewH = 1;
 const skewHImage = () => {
   skewH = skewH * -1;
-  image.style.transform = "scaleX(" + skewH + ")";
+  applyChangesToImage();
 };
 
-let skewV = 1;
 const skewVImage = () => {
   skewV = skewV * -1;
-  image.style.transform = "scaleY(" + skewV + ")";
+  applyChangesToImage();
 };
 
-let blur = 0;
 const addBlur = () => {
   blur += 1;
   if (blur >= 100) {
     blur = 100;
   }
-  image.style.filter = "blur(" + blur + "px)";
+  applyChangesToImage();
 };
 
 const removeBlur = () => {
@@ -95,22 +112,21 @@ const removeBlur = () => {
   if (blur <= 0) {
     blur = 0;
   }
-  image.style.filter = "blur(" + blur + "px)";
+  applyChangesToImage();
 };
 
-let brightness = 100;
 const addBrightness = () => {
   brightness += 5;
   if (brightness >= 200) {
-    blur = 200;
+    brightness = 200;
   }
-  image.style.filter = "brightness(" + brightness + "%)";
+  applyChangesToImage();
 };
 
 const removeBrightness = () => {
   brightness -= 5;
   if (brightness <= 0) {
-    blur = 0;
+    brightness = 0;
   }
-  image.style.filter = "brightness(" + brightness + "%)";
+  applyChangesToImage();
 };
