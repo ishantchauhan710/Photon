@@ -1,3 +1,5 @@
+![](picker.png)
+
 # Photon
 Photon is a cross platform image editing desktop app. One can select any image and apply different transformations and filters on it and export the resultant image in PNG format on their computer 
 
@@ -15,6 +17,7 @@ Here is a short video about this app: https://www.youtube.com/watch?v=ZI7M34T9f9
 - Adjust saturation
 
 # Installation
+![](thumbnail.png)
 To access this app on your computer, make sure nodejs is installed on your computer. Then clone this repository and in terminal, write:
 ```
 npm install
