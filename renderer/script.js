@@ -42,7 +42,7 @@ const closeEditor = () => {
 };
 
 // Show welcome screen on load
-closeEditor();
+openEditor();
 
 const handleImageSelection = (e) => {
   const file = e.target.files[0];
@@ -57,8 +57,6 @@ const handleImageSelection = (e) => {
   openEditor(img);
 };
 
-//openEditor(img);
-
 document.getElementById("discardBtn").addEventListener("click", closeEditor);
 
 filePicker.addEventListener("change", handleImageSelection);
@@ -71,7 +69,7 @@ let brightness = 100;
 let contrast = 100;
 let saturation = 1;
 let tintColor = "#000000";
-let opacity = 0;
+let opacity = 0.0;
 
 const applyChangesToImage = () => {
   image.style.transform =
@@ -184,25 +182,24 @@ const removeSaturation = () => {
 const tint = document.getElementById("tint");
 
 const applyChangesToTint = () => {
+  console.log("Called");
   tint.style.opacity = opacity;
   tint.style.backgroundColor = tintColor;
 };
 
-// Run once when page loads
-applyChangesToTint();
-
 const addOpacity = () => {
   opacity += 0.1;
-  if (opacity >= 1) {
-    opacity = 1;
+  console.log(opacity);
+  if (opacity >= 1.0) {
+    opacity = 1.0;
   }
   applyChangesToTint();
 };
 
 const removeOpacity = () => {
   opacity -= 0.1;
-  if (opacity <= 0) {
-    opacity = 0;
+  if (opacity <= 0.0) {
+    opacity = 0.0;
   }
   applyChangesToTint();
 };
@@ -224,3 +221,47 @@ document.getElementById("colorPicker").addEventListener("input", () => {
   tintColor = colorPicker.value;
   applyChangesToTint();
 });
+
+// Image Fit
+let fit = 3;
+let fitLabel = "contain";
+const objectFitBtn = document.getElementById("objectFitBtn");
+
+const handleObjectFit = () => {
+  fit += 1;
+  if (fit > 3) {
+    fit = 1;
+  }
+  if (fit === 1) {
+    image.style.objectFit = "fill";
+    fitLabel = "Fill";
+    objectFitBtn.innerHTML = fitLabel;
+  } else if (fit === 2) {
+    image.style.objectFit = "cover";
+    fitLabel = "Cover";
+    objectFitBtn.innerHTML = fitLabel;
+  } else if (fit === 3) {
+    image.style.objectFit = "contain";
+    fitLabel = "Contain";
+    objectFitBtn.innerHTML = fitLabel;
+  }
+};
+handleObjectFit();
+objectFitBtn.addEventListener("click", handleObjectFit);
+
+// Reset Filters
+const resetImage = () => {
+  rotationAngle = 0;
+  skewH = 1;
+  skewV = 1;
+  blur = 0;
+  brightness = 100;
+  contrast = 100;
+  saturation = 1;
+  image.style.transform = "";
+  image.style.filter = "";
+
+  tintColor = "#000000";
+  opacity = 0.0;
+  applyChangesToTint();
+};

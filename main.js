@@ -8,6 +8,7 @@ const createMainWindow = () => {
     width: 800,
     height: 600,
     frame: false,
+    resizable: false,
     nodeIntegration: true,
     contextIsolation: false,
     enableRemoteModule: true,
@@ -17,7 +18,6 @@ const createMainWindow = () => {
       enableRemoteModule: true,
     },
   });
-
   mainWindow.loadFile("./renderer/index.html");
 };
 
@@ -40,3 +40,4 @@ app.on("window-all-closed", () => {
 ipcMain.on("close-app", (evt, arg) => {
   app.quit();
 });
+
