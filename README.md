@@ -16,8 +16,15 @@ Here is a short video about this app: https://www.youtube.com/watch?v=ZI7M34T9f9
 - Adjust contrast
 - Adjust saturation
 
+# Built Using
+- ElectronJs
+- TailwindCSS
+
+
 # Installation
 ![](thumbnail.png)
+
+
 To access this app on your computer, make sure nodejs is installed on your computer. Then clone this repository and in terminal, write:
 ```
 npm install
