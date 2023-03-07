@@ -11,6 +11,9 @@
   "author": "ishant",
   "license": "ISC",
   "dependencies": {
-    "electron": "^23.1.2"
+    "axios": "^1.3.4",
+    "electron": "^23.1.2",
+    "file-saver": "^2.0.5",
+    "html-to-image": "^1.11.11"
   }
 }

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./stylesheets/style.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Poppins"
       rel="stylesheet"
@@ -18,7 +18,7 @@
         class="basis-1/2 bg-orange-600 text-white text-center flex items-center justify-center"
       >
         <div class="flex flex-col items-center">
-          <img src="./photon.png" class="w-3/12" />
+          <img src="./assets/photon.png" class="w-3/12" />
           <div class="mt-2 font-bold text-2xl">Photon</div>
           <div class="text-[12px]">(Version 1.0)</div>
         </div>
@@ -39,33 +39,10 @@
         <a
           id="screenshotBtn"
           class="inline-block w-8/12 text-center mt-4 rounded border border-orange-600 px-12 py-3 text-sm font-medium text-orange-600 hover:bg-orange-600 hover:text-white focus:outline-none active:bg-orange-500"
-          href="#"
+          href="https://github.com/ishantchauhan710/Photon"
+          target="_blank"
         >
-          Take Screenshot
-        </a>
-
-        <a
-          id="screenshotBtn"
-          class="inline-block w-8/12 text-center mt-4 rounded border border-orange-600 px-12 py-3 text-sm font-medium text-orange-600 hover:bg-orange-600 hover:text-white focus:outline-none active:bg-orange-500"
-          href="#"
-        >
-          Remove Background
-        </a>
-
-        <a
-          id="screenshotBtn"
-          class="inline-block w-8/12 text-center mt-4 rounded border border-orange-600 px-12 py-3 text-sm font-medium text-orange-600 hover:bg-orange-600 hover:text-white focus:outline-none active:bg-orange-500"
-          href="#"
-        >
-          Image Cropper
-        </a>
-
-        <a
-          id="screenshotBtn"
-          class="inline-block w-8/12 text-center mt-4 rounded border border-orange-600 px-12 py-3 text-sm font-medium text-orange-600 hover:bg-orange-600 hover:text-white focus:outline-none active:bg-orange-500"
-          href="#"
-        >
-          Color Picker
+          Documentation
         </a>
 
         <a
@@ -73,24 +50,24 @@
           class="inline-block w-8/12 text-center mt-4 rounded border border-orange-600 px-12 py-3 text-sm font-medium text-orange-600 hover:bg-orange-600 hover:text-white focus:outline-none active:bg-orange-500"
           href="#"
         >
-          Quit
+          Exit
         </a>
       </div>
     </div>
     <div>
-      <div id="editor" class="h-screen flex">
+      <div id="editor" class="h-screen flex relative">
         <div
           class="basis-2/3 bg-gray-100 border-r border-neutral-100 text-center flex items-center justify-center"
         >
           <div
             class="px-4 w-full h-full flex flex-col items-center justify-center"
           >
-            <div class="relative">
-              <div class="w-full h-full absolute" id="tint"></div>
+            <div class="relative" id="frame">
+              <div class="z-4000 w-full h-full absolute" id="tint"></div>
               <img
                 id="editorImage"
                 src="https://cdn.pixabay.com/photo/2023/02/06/01/14/superb-fairywren-7770904_960_720.jpg"
-                class="w-full h-full rounded-sm aspect-square object-fit"
+                class="w-full h-full z-30 rounded-sm aspect-square object-fit"
               />
             </div>
 
@@ -104,6 +81,7 @@
               </a>
 
               <a
+                id="saveBtn"
                 class="block w-full text-center mt-4 rounded border border-green-600 px-12 py-3 text-sm font-medium text-green-600 hover:bg-green-600 hover:text-white focus:outline-none active:bg-green-500"
                 href="#"
               >
@@ -147,27 +125,27 @@
             <div class="grid grid-cols-2 gap-2 w-full px-2">
               <div
                 onclick="rotateImage()"
-                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
+                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-md text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
               >
                 Rotate
               </div>
 
               <div
                 onclick="skewHImage()"
-                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
+                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-md text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
               >
                 Skew (H)
               </div>
               <div
                 onclick="skewVImage()"
-                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
+                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-md text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
               >
                 Skew (V)
               </div>
 
               <div
                 id="colorPickerBtn"
-                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
+                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-md text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
               >
                 Color
                 <input id="colorPicker" type="color" value="#ff0000" hidden />
@@ -175,14 +153,14 @@
 
               <div
                 onclick="addOpacity()"
-                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
+                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-md text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
               >
                 Opacity (+)
               </div>
 
               <div
                 onclick="removeOpacity()"
-                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
+                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-md text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
               >
                 Opacity (-)
               </div>
@@ -192,54 +170,54 @@
             <div class="grid grid-cols-2 gap-2 w-full px-2">
               <div
                 onclick="addBlur()"
-                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
+                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-md text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
               >
                 Blur (+)
               </div>
 
               <div
                 onclick="removeBlur()"
-                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
+                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-md text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
               >
                 Blur (-)
               </div>
               <div
                 onclick="addBrightness()"
-                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
+                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-md text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
               >
                 Bright (+)
               </div>
 
               <div
                 onclick="removeBrightness()"
-                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
+                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-md text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
               >
                 Bright (-)
               </div>
 
               <div
                 onclick="addContrast()"
-                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
+                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-md text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
               >
                 Contrast (+)
               </div>
 
               <div
                 onclick="removeContrast()"
-                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
+                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-md text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
               >
                 Contrast (-)
               </div>
               <div
                 onclick="addSaturation()"
-                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
+                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-md text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
               >
                 Saturate (+)
               </div>
 
               <div
                 onclick="removeSaturation()"
-                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-lg text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
+                class="bg-neutral-200 hover:bg-neutral-300 transition cursor-pointer text-md text-gray-800 drop-shadow-sm flex items-center justify-center aspect-square rounded-sm"
               >
                 Saturate (-)
               </div>
@@ -248,6 +226,6 @@
         </div>
       </div>
     </div>
-    <script src="./script.js"></script>
+    <script src="./scripts/script.js"></script>
   </body>
 </html>
